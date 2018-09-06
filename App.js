@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { createStackNavigator} from 'react-navigation';
 
-class Greeting extends Component {
-  render() {
-    return (
-      <Text>Hello {this.props.name}!</Text>
-    )
-  }
-}
+import Map from './components/Map.js'
+import Home from './components/Home.js'
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Greeting name='Rexxar' />
-        <Greeting name='Jaina' />
-        <Greeting name='Valeera' />
-      </View>
-    );
+    <View>
+      <Text>Welcome, Soup Kitchen #23!</Text>
+      <Button title='Go to map' onPress={ () => this.props.navigation.navigate('Map')} />
+    </View>
   }
 }
+
+const RootStack = createStackNavigator({
+  Home: Home,
+  Map: Map
+},{
+  initialRouteName: 'Home'
+})
 
 const styles = StyleSheet.create({
   container: {
