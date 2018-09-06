@@ -1,8 +1,5 @@
-import React, { Component } from 'react'
-import { StyleSheet, 
-  Text, 
-  View } from 'react-native'
-  import { createStackNavigator } from 'react-navigation'
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -20,7 +17,7 @@ export default class App extends React.Component {
         <Greeting name='Jaina' />
         <Greeting name='Valeera' />
       </View>
-    )
+    );
   }
 }
 
@@ -31,4 +28,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-})
+});
