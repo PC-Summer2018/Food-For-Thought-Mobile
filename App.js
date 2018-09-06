@@ -9,7 +9,9 @@ export default class App extends React.Component {
   render() {
     <View>
       <Text>Welcome, Soup Kitchen #23!</Text>
-      <Button title='Go to map' onPress={ () => this.props.navigation.navigate('Map')} />
+      <Button 
+        title='Go to map' 
+        onPress={ () => this.props.navigation.navigate('Map')} />
     </View>
   }
 }
