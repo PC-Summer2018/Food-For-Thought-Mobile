@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "sdkVersion": "27.0.0",
+    "name": "Food For Thought",
+    "description": "An app for drivers to naviaget with.",
+    "slug": "food-for-thought",
+    "privacy": "public",
+    "version": "0.0.1"
+  },
+  "ios": {
+  	"config": {
+  		"googleMapsApiKey": "AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U"
+  	}
   }
 }
