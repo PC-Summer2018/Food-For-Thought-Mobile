@@ -8,10 +8,10 @@ class Map extends Component {
 			longitude: 0
 		}
 	}
-	
+
 	render() {
 		return (
-			<View>
+			<View style={}>
 				<MapView
 					style={{ flex: 1 }}
 					intitalRegion={{
@@ -21,6 +21,7 @@ class Map extends Component {
 						longitudeDelta: 0.0421
 					}}
 				/>
+				
 				<Text>This is the Home Page.</Text>
 			</View>
 		)
