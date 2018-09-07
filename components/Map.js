@@ -1,30 +1,46 @@
 import React, { Component } from 'react'
-import { View,  Text } from 'react-native'
-import { MapView } from 'expo'
+import { View,  Text, StyleSheet } from 'react-native'
+import MapView from 'react-native-maps'
 
+const styles = StyleSheet.create({
+	container: {
+    // flex: 1,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  map: {
+  	position: 'absolute',
+  	top: 0,
+  	left: 0,
+    bottom: 0,
+    right: 0
+  }
+})
 class Map extends Component {
-	state = {
-		currentLocation: {
-			latitude: 0,
-			longitude: 0
-		}
-	}
+	// state = {
+	// 	currentLatLng: {
+	// 		lat: 0,
+	// 		lng: 0
+	// 	}
+	// }
 
 	render() {
 		return (
-			<View>
-				<MapView
-					style={{ flex: 1 }}
-					intitalRegion={{
-						latitude: 37.78825,
-						longitude: -122.4324,
-						latitudeDelta: 0.0922,
-						longitudeDelta: 0.0421
-					}}
-				/>
-
-				<Text>This is the Maps Page.</Text>
-			</View>
+			<View style={styles.container}>
+				<MapView style={styles.map}
+			    initialRegion={{
+			      latitude: 36.1699,
+			      longitude: -115.1398,
+			      latitudeDelta: 0.0922,
+			      longitudeDelta: 0.0421,
+			    }}
+			  />
+		  </View>
 		)
 	}
 }
