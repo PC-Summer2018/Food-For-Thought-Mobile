@@ -3,7 +3,7 @@ import { View, Text, Dimensions, StyleSheet, Alert, Platform } from 'react-nativ
 import { Constants, MapView } from 'expo';
 
 // Using a local version here because we need it to import MapView from 'expo'
-import MapViewDirections from './src/MapViewDirections';
+// import MapViewDirections from './src/MapViewDirections';
 
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;

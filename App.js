@@ -9,20 +9,27 @@ import Login from './components/Login.js'
 export default class App extends React.Component {
   render() {
     return (
-      <View>
-        <RootStack />
-      </View>
+      <RootStack />
     )
   }
 }
 
-const RootStack = createStackNavigator({
-  Home: Home,
-  Map: Map,
-  Login: Login
-},{
-  initialRouteName: 'Home'
-})
+const RootStack = createStackNavigator(
+  {
+    Home: {
+      screen: Home
+    },
+    Map: {
+      screen: Map
+    },
+    Login: {
+      screen: Login
+    },
+  },
+    {
+      initialRouteName: 'Login'
+    }
+)
 
 const styles = StyleSheet.create({
   container: {
