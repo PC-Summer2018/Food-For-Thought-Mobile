@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { View,  Text } from 'react-native'
 import { MapView } from 'expo'
 
 class Map extends Component {
@@ -22,7 +23,7 @@ class Map extends Component {
 					}}
 				/>
 
-				<Text>This is the Home Page.</Text>
+				<Text>This is the Maps Page.</Text>
 			</View>
 		)
 	}
