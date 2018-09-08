@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { View,  Text, StyleSheet } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
-import { compose, withProps, lifecycle } from 'recompose'
+import MapViewDirections from 'react-native-maps-directions'
+// import { compose, withProps, lifecycle } from 'recompose'
+
 
 class Map extends Component {
 	state = {
@@ -9,64 +11,68 @@ class Map extends Component {
 			lat: 0,
 			lng: 0
 		},
-		rte: []
+		// rte: []
 	}
 
-	showCurrentLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(position => {
-				this.setState({
-					currentLatLng: {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					}
-				})
-			})
-		}
-	}
+	// showCurrentLocation() {
+	// 	if (navigator.geolocation) {
+	// 		navigator.geolocation.getCurrentPosition(position => {
+	// 			this.setState({
+	// 				currentLatLng: {
+	// 					lat: position.coords.latitude,
+	// 					lng: position.coords.longitude
+	// 				}
+	// 			})
+	// 		})
+	// 	}
+	// }
 
 	componentDidMount() {
-		this.showCurrentLocation()
-		getAddresses(api.getProfile().id) 
+		// this.showCurrentLocation()
+		// getAddresses(api.getProfile().id) 
 	}
 
 	render() {
-		const lat = this.state.currentLatLng.lat
-		const lng = this.state.currentLatLng.lng
-		const waypoint = this.props.address
+		// const lat = this.state.currentLatLng.lat
+		// const lng = this.state.currentLatLng.lng
+		// const waypoint = this.props.address
 
-		const DirectionsComponent = compose(
-			withProps({
-				googleMapUrl: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U',
-				loadingElement: <View style={{ height: `100%` }} />,
-	      containerElement: <View style={{ width: `100%` }} />,
-	      mapElement: <View style={{height: `600px`, width: `100%` }} />
-	    })
+		// const DirectionsComponent = compose(
+		// 	withProps({
+		// 		googleMapUrl: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U',
+		// 		loadingElement: <View style={{ height: `100%` }} />,
+	 //      containerElement: <View style={{ width: `100%` }} />,
+	 //      mapElement: <View style={{height: `600px`, width: `100%` }} />
+	 //    })
 
-			withScriptjs,
-			withGoogleMaps
+		// 	// withScriptjs
+		// 	// withGoogleMaps
 
-			lifecycle({
-				componentDidMount() {
-					const DirectionsService = new google.maps.Directions()
+		// 	lifecycle({
+		// 		componentDidMount() {
+		// 			const DirectionsService = new google.maps.Directions()
 
-					DirectionsService.route({
-						origin: new google.maps.LatLng({ lat: lat, lng: lng }),
-						destination: api.getProfile().locatoin,
-						waypoints: waypoint,
-						optimizeWWayPoints: true,
-						travelMode: google.maps.TravelMode.DRIVING
-					}, (result, status) => {
-						if (status === google.maps.DirectionsStatus.OK) {
-							this.setState({
-								directions: {...result}
-							})
-							rte = {...result.routes}
-						}
-					})
-				}
-			})
-		)
+		// 			DirectionsService.route({
+		// 				origin: new google.maps.LatLng({ lat: lat, lng: lng }),
+		// 				destination: api.getProfile().locatoin,
+		// 				waypoints: waypoint,
+		// 				optimizeWWayPoints: true,
+		// 				travelMode: google.maps.TravelMode.DRIVING
+		// 			}, (result, status) => {
+		// 				if (status === google.maps.DirectionsStatus.OK) {
+		// 					this.setState({
+		// 						directions: {...result}
+		// 					})
+		// 					rte = {...result.routes}
+		// 				}
+		// 			})
+		// 		}
+		// 	})
+		// )(props =>
+		// 	<GoogleMap defaultZoom={8} center={{ lat: 36.1699, lng: -115.1398 }}>
+		// 		<TrafficLayer autoUpdate />
+		// 	</GoogleMap>
+		// )
 
 		return (
 			<View style={styles.container}>
@@ -86,6 +92,8 @@ class Map extends Component {
 					title={'My marker title'}
 					description={'My marker description'}
 			  />
+
+			{/*<DirectionsComponent  />*/}
 		  </View>
 		)
 	}
