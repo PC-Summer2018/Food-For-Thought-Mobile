@@ -4,15 +4,27 @@ import MapView, { Marker } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions'
 // import { compose, withProps, lifecycle } from 'recompose'
 
+const coordinates = [
+	{
+		latitude: 36.1583869,
+    longitude: -115.152501
+	},
+	{
+		latitude: 36.117388,
+    longitude: -115.169968
+	}
+]
+
+const GOOGLE_MAPS_APIKEY = 'AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U'
 
 class Map extends Component {
-	state = {
-		currentLatLng: {
-			lat: 0,
-			lng: 0
-		},
-		// rte: []
-	}
+	// state = {
+	// 	currentLatLng: {
+	// 		lat: 0,
+	// 		lng: 0
+	// 	},
+	// 	// rte: []
+	// }
 
 	// showCurrentLocation() {
 	// 	if (navigator.geolocation) {
@@ -82,16 +94,26 @@ class Map extends Component {
 			      longitude: -115.1398,
 			      latitudeDelta: 0.0922,
 			      longitudeDelta: 0.0421,
-			    }}
-			  />
-			  <MapView.Marker
-					coordinate={{
-						latitude: 36.1699,
-			      longitude: -115.1398
-					}}
-					title={'My marker title'}
-					description={'My marker description'}
-			  />
+			    }}>
+				  <MapView.Marker
+						coordinate={coordinates[0]}
+						title={'PunchCode'}
+						description={'A school for gifted children.'}
+				  />
+				  <MapView.Marker
+						coordinate={coordinates[1]}
+						title={'In-N-Out Burger'}
+						description={'The food of the people.'}
+				  />
+				  <MapViewDirections 
+				  	origin={coordinates[0]}
+				  	destination={coordinates[1]}
+				  	apikey={GOOGLE_MAPS_APIKEY}
+				  	strokeWidth={3}
+				  	strokeColor='hotpink'
+				  />
+
+		  	</MapView>
 
 			{/*<DirectionsComponent  />*/}
 		  </View>
