@@ -3,6 +3,24 @@ import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
 export default class Login extends React.Component {
+  state = {
+    email: '',
+    password: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    if(this.state.email !== '' && this.state.password !== '') {
+    }
+    this.props.navigation.navigate('ManagePickups')
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -10,9 +28,9 @@ export default class Login extends React.Component {
           <FontAwesome style={styles.titleTextIcon} name='cutlery' />
           <Text style={styles.titleText}>Login</Text>
         </View>
-        <TextInput style={styles.loginInputs} placeholder='Email'/>
-        <TextInput style={styles.loginInputs} placeholder='Password'/>
-        <Button style={styles.button} onPress={() => this.props.navigation.navigate('Home')} title='Login' />
+        <TextInput style={styles.loginInputs} name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email'/>
+        <TextInput style={styles.loginInputs} name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password'/>
+        <Button style={styles.button} onPress={this.handleSubmit} title='Login' />
       </View>
     )
   }
