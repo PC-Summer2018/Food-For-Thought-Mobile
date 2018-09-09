@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { MapView } from 'expo'
 
 export default class MapScreen extends React.Component {
+	static navigationOptions = {
+		title:'Map',
+	}
+	
 	state = {
 		currentLocation: {
 			latitude: 0,

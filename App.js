@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet } from 'react-native'
+import { Button, StyleSheet } from 'react-native'
 import { createStackNavigator} from 'react-navigation'
 
 import LoginScreen from './components/LoginScreen.js'
@@ -28,6 +28,18 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName:'Login',
+    navigationOptions: {
+      headerRight: (
+        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='white' />
+      ),
+      headerStyle: {
+        backgroundColor:'black',
+      },
+      headerTintColor:'white',
+      headerTitleStyle: {
+        fontWeight:'bold',
+      },
+    },
   }
 )
 

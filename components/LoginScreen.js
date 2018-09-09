@@ -3,6 +3,14 @@ import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
 export default class LoginScreen extends React.Component {
+  static navigationOptions = ({navigation, navigationOptions}) => {
+    return {
+      headerStyle: {
+        backgroundColor:'white',
+      },
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
