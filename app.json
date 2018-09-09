@@ -2,7 +2,7 @@
   "expo": {
     "sdkVersion": "27.0.0",
     "name": "Food For Thought",
-    "description": "An app for drivers to naviaget with.",
+    "description": "An app for drivers to navigate with.",
     "slug": "food-for-thought",
     "privacy": "public",
     "version": "0.0.1"
