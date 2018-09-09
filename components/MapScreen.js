@@ -71,7 +71,7 @@ class Map extends Component {
 							longitude: this.state.longitude
 						}}
 						title={'Current location'}
-						pinColor={'purple'}
+						
 				  />
 				  <MapView.Marker
 						coordinate={{
