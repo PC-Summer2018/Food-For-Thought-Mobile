@@ -24,6 +24,12 @@ class Map extends Component {
 		}
 	}
 
+	renderMarkers() {
+		return this.props.map((place, i) => (
+			<Marker key={i} title={place.name} coordinate={place.coords} />
+		))
+	}
+
 	showCurrentLocation() {
 		this.watchId = navigator.geolocation.watchPosition(
 			(position) => {
@@ -52,23 +58,27 @@ class Map extends Component {
 			<View style={styles.container}>
 				<MapView style={styles.map}
 			    region={this.state.region}
-			    zoomEnabled={true}
+			    provider='google'
+			    showsUserLocation
+					showsMyLocationButton
+					showsTraffic
 			   >
-
+					
+					{this.renderMarkers}
 				  <MapView.Marker
 						coordinate={{
 							latitude: this.state.latitude,
 							longitude: this.state.longitude
 						}}
 						title={'Current location'}
-						description={'A school for gifted children.'}
+						pinColor={'purple'}
 				  />
 				  <MapView.Marker
 						coordinate={{
 							latitude: 36.117388,
     					longitude: -115.169968
 						}}
-						title={'In-N-Out Burger'}
+						title={'El Diner'}
 						description={'The food of the people.'}
 				  />
 
@@ -87,17 +97,11 @@ class Map extends Component {
 				  	language='en'
 				  />
 		  	</MapView>
-
-		  	<Text>Latitude: {this.state.latitude}</Text>
-		  	<Text>Latitude: {this.state.longitude}</Text>
-		  	{this.state.error ? <Text>Error: {this.state.error}</Text> : null}
 				
 				<Text>French Toast</Text>
 				<Text>Potatoes</Text>
 				<Text>French Fries</Text>
 				<Text>Spaghetti</Text>
-				<Text>French Bread</Text>
-				<Text>Cheeseburger</Text>
 		  </View>
 		)
 	}
