@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-export default class Login extends React.Component {
+export default class LoginScreen extends React.Component {
   state = {
     email: '',
     password: ''
@@ -18,7 +18,7 @@ export default class Login extends React.Component {
     e.preventDefault()
     if(this.state.email !== '' && this.state.password !== '') {
     }
-    this.props.navigation.navigate('ManagePickups')
+    this.props.navigation.navigate('Home')
   }
 
   render() {
