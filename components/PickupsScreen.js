@@ -3,10 +3,14 @@ import { View, Text, StyleSheet } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 
 export default class PickupsScreen extends React.Component {
+	static navigationOptions = {
+		title:'Pickups',
+	}
+	
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.title}>Pickups</Text>
+				<Text style={styles.header}>Pickups</Text>
 			</View>
 		)
 	}
@@ -19,7 +23,7 @@ const styles = StyleSheet.create({
 		backgroundColor:'#fff',
 		alignItems:'center',
 	},
-	title:{
+	header:{
 		paddingBottom:10,
 		fontSize:18,
 		fontWeight:'bold',
