@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-export default class Login extends React.Component {
+export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
