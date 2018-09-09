@@ -1,6 +1,6 @@
 
 const GET_REPOS = ''
-const GET_REPOS_SUCCESS = '
+const GET_REPOS_SUCCESS = ''
 const GET_REPOS_FAIL = ''
 
 // Reducer
