@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { createStackNavigator} from 'react-navigation';
+import React, { Component } from 'react'
+import { StyleSheet } from 'react-native'
+import { createStackNavigator} from 'react-navigation'
 
-import Home from './components/Home.js'
-import Map from './components/Map.js'
-import Login from './components/Login.js'
+import LoginScreen from './components/LoginScreen.js'
+import HomeScreen from './components/HomeScreen.js'
+import MapScreen from './components/MapScreen.js'
+import ReportsScreen from './components/ReportsScreen.js'
+import PickupsScreen from './components/PickupsScreen.js'
+import ProfileScreen from './components/ProfileScreen.js'
 
 export default class App extends React.Component {
   render() {
@@ -17,26 +20,24 @@ export default class App extends React.Component {
 
 const RootStack = createStackNavigator(
   {
-    Home: {
-      screen: Home
-    },
-    Map: {
-      screen: Map
-    },
-    Login: {
-      screen: Login
-    },
+    Login:LoginScreen,
+    Home:HomeScreen,
+    Map:MapScreen,
+    Reports:ReportsScreen,
+    Pickups:PickupsScreen,
+    Profile:ProfileScreen,
   },
-    {
-      initialRouteName: 'Login'
-    }
+  {
+    initialRouteName:'Login',
+  }
 )
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
+    flex:1,
+    paddingTop:10,
+    backgroundColor:'#fff',
+    alignItems:'center',
+    justifyContent:'center',
+  },
+})
