@@ -10,6 +10,7 @@ import {
 	StatusBar, 
 	TouchableOpacity 
 } from "react-native";
+import { createStackNavigator } from 'react-navigation'
 import MapView, { Marker } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions'
 
