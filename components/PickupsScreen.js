@@ -4,6 +4,10 @@ import { createStackNavigator } from 'react-navigation'
 import { Entypo } from '@expo/vector-icons'
 
 export default class ManagePickups extends React.Component {
+	static navigationOptions = {
+		title:'Pickups',
+	}
+
 	render() {
 		return (
 			<View style={styles.managePickupsContainer}>
