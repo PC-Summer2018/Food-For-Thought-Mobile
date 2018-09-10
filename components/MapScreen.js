@@ -46,7 +46,12 @@ class Map extends Component {
 				})
 			},
 			(error) => this.setState({ error: error.message }),
-			{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 }
+			{ 
+				enableHighAccuracy: true, 
+				timeout: 20000, 
+				maximumAge: 1000, 
+				distanceFilter: 10 
+			}
 		)
 	}
 
@@ -68,17 +73,19 @@ class Map extends Component {
 			    showsUserLocation
 					showsMyLocationButton
 					showsTraffic
+					showsBuildings
 			   >
 
-				{this.state.markers.map(marker => (
-					<MapView.Marker
-						key={marker}
-						coordinate={marker.coordinates}
-						title={'Current location'}
-				  />
-				))}
+					{this.state.markers.map(marker => (
+						<View key={marker}>
+							<MapView.Marker
+								coordinate={marker.coordinates}
+								title={'Current location'}
+						  />
 
-				  
+						  
+						</View>
+					))}
 				  <Marker
 						coordinate={{
 							latitude: 36.117388,
@@ -87,8 +94,6 @@ class Map extends Component {
 						title={'El Diner'}
 						description={'The food of the people.'}
 				  />
-
-				  
 		  	</MapView>
 		  </View>
 		)
