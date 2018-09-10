@@ -67,8 +67,9 @@ class Map extends Component {
 			    region={this.state.region}
 			    provider='google'
 			    showsUserLocation
-					showsMyLocationButton
-					showsTraffic
+				showsMyLocationButton
+				showsTraffic
+				minZoomLevel={10}
 			   >
 					
 					{this.renderMarkers}
