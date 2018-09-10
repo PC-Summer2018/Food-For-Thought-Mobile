@@ -10,10 +10,9 @@ import {
 	StatusBar, 
 	TouchableOpacity 
 } from "react-native";
+import { createStackNavigator } from 'react-navigation'
 import MapView, { Marker } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions'
-
-import Pickups from './PickupsScreen.js'
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U'
 
@@ -28,14 +27,14 @@ class Map extends Component {
       longitude: -115.1398295,
       latitudeDelta: 0.5,
       longitudeDelta: 0.0421
-		}
-	}
-
-	renderMarkers() {
-		return this.props.map((place, i) => (
-			<Marker key={i} title={place.name} coordinate={place.coords} />
-		))
-	}
+		},
+		markers: [{
+	    coordinates: {
+	      latitude: 3.148561,
+	      longitude: 101.652778
+	    },
+  	}]
+}
 
 	showCurrentLocation() {
 		this.watchId = navigator.geolocation.watchPosition(
@@ -71,41 +70,24 @@ class Map extends Component {
 				showsTraffic
 				minZoomLevel={10}
 			   >
-					
-					{this.renderMarkers}
-				  <MapView.Marker
-						coordinate={{
-							latitude: this.state.latitude,
-							longitude: this.state.longitude
-						}}
+
+				{this.state.markers.map(marker => (
+					<MapView.Marker
+						key={marker}
+						coordinate={marker.coordinates}
 						title={'Current location'}
-						
-				  />
-				  <MapView.Marker
+					/>
+				))}
+				 	<Marker
 						coordinate={{
 						latitude: 36.117388,
     					longitude: -115.169968
 						}}
 						title={'El Diner'}
 						description={'The food of the people.'}
-				  />
-
-				  <MapViewDirections 
-				  	origin={{
-				  		latitude: this.state.latitude,
-						longitude: this.state.longitude
-				  	}}
-				  	destination={{
-				  		latitude: 36.117388,
-    					longitude: -115.169968
-				  	}}
-				  	apikey={GOOGLE_MAPS_APIKEY}
-				  	strokeWidth={3}
-				  	strokeColor='blue'
-				  	language='en'
-				  />
-		  	</MapView>
-		  </View>
+					/>
+			  	</MapView>
+			</View>
 		)
 	}
 }
@@ -114,20 +96,20 @@ export default Map
 
 const styles = StyleSheet.create({
 	container: {
-	    // flex: 1,
-	    position: 'absolute',
-	    top: 0,
-	    left: 0,
-	    bottom: 0,
-	    right: 0,
-	    justifyContent: 'flex-end',
-	    alignItems: 'center'
-		},
-	map: {
-	  	position: 'absolute',
-	  	top: 0,
-	  	left: 0,
-	    bottom: 180,
-	    right: 0
-		}
-	})
+    flex: 1,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  map: {
+  	position: 'absolute',
+  	top: 0,
+  	left: 0,
+    bottom: 180,
+    right: 0
+  }
+})
