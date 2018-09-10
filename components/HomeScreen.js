@@ -31,5 +31,5 @@ const styles = StyleSheet.create({
 		paddingBottom:10,
 		fontSize:18,
 		fontWeight:'bold',
-	},
+	}
 })
