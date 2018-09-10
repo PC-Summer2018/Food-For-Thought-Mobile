@@ -55,12 +55,13 @@ export default class ManagePickups extends React.Component {
 
 const styles = StyleSheet.create({
 	managePickupsContainer: {
-		
+		backgroundColor: '#ebfbec'
 	},
 	individualPickupContainer: {
 		borderBottomWidth: 2,
 		flexDirection: 'row',
-		alignItems: 'center'
+		alignItems: 'center',
+		backgroundColor: '#fff'
 	},
 	restaurant: {
 		fontWeight: 'bold',
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#1569C7',
-		borderRadius: 50,
+		borderRadius: 20,
 		height: 55,
 		width: 55
 	},

@@ -39,7 +39,7 @@ export default class LoginScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ebfbec',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     paddingHorizontal: 10,
-    fontSize: 20
+    fontSize: 20,
+    backgroundColor: '#fff'
   },
   button: {
     borderWidth: 1,
