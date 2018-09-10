@@ -6,11 +6,14 @@ import {
 	Image, 
 	View, 
 	Text,
+	Button,
 	StatusBar, 
 	TouchableOpacity 
 } from "react-native";
 import MapView, { Marker } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions'
+
+import Pickups from './PickupsScreen.js'
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U'
 
@@ -97,11 +100,6 @@ class Map extends Component {
 				  	language='en'
 				  />
 		  	</MapView>
-				
-				<Text>French Toast</Text>
-				<Text>Potatoes</Text>
-				<Text>French Fries</Text>
-				<Text>Spaghetti</Text>
 		  </View>
 		)
 	}
