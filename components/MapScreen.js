@@ -82,7 +82,7 @@ class Map extends Component {
 				  />
 				  <MapView.Marker
 						coordinate={{
-							latitude: 36.117388,
+						latitude: 36.117388,
     					longitude: -115.169968
 						}}
 						title={'El Diner'}
@@ -92,7 +92,7 @@ class Map extends Component {
 				  <MapViewDirections 
 				  	origin={{
 				  		latitude: this.state.latitude,
-							longitude: this.state.longitude
+						longitude: this.state.longitude
 				  	}}
 				  	destination={{
 				  		latitude: 36.117388,
@@ -113,20 +113,20 @@ export default Map
 
 const styles = StyleSheet.create({
 	container: {
-    // flex: 1,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
-  },
-  map: {
-  	position: 'absolute',
-  	top: 0,
-  	left: 0,
-    bottom: 180,
-    right: 0
-  }
-})
+	    // flex: 1,
+	    position: 'absolute',
+	    top: 0,
+	    left: 0,
+	    bottom: 0,
+	    right: 0,
+	    justifyContent: 'flex-end',
+	    alignItems: 'center'
+		},
+	map: {
+	  	position: 'absolute',
+	  	top: 0,
+	  	left: 0,
+	    bottom: 180,
+	    right: 0
+		}
+	})
