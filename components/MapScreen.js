@@ -13,8 +13,6 @@ import {
 import MapView, { Marker } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions'
 
-import Pickups from './PickupsScreen.js'
-
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U'
 
 class Map extends Component {
@@ -28,13 +26,13 @@ class Map extends Component {
       longitude: -115.1398295,
       latitudeDelta: 0.5,
       longitudeDelta: 0.0421
-		}
-	}
-
-	renderMarkers() {
-		return this.props.map((place, i) => (
-			<Marker key={i} title={place.name} coordinate={place.coords} />
-		))
+		},
+		markers: [{
+	    coordinates: {
+	      latitude: 3.148561,
+	      longitude: 101.652778
+	    },
+  	}]
 	}
 
 	showCurrentLocation() {
@@ -70,17 +68,17 @@ class Map extends Component {
 					showsMyLocationButton
 					showsTraffic
 			   >
-					
-					{this.renderMarkers}
-				  <MapView.Marker
-						coordinate={{
-							latitude: this.state.latitude,
-							longitude: this.state.longitude
-						}}
+
+				{this.state.markers.map(marker => (
+					<MapView.Marker
+						key={marker}
+						coordinate={marker.coordinates}
 						title={'Current location'}
-						
 				  />
-				  <MapView.Marker
+				))}
+
+				  
+				  <Marker
 						coordinate={{
 							latitude: 36.117388,
     					longitude: -115.169968
@@ -89,20 +87,7 @@ class Map extends Component {
 						description={'The food of the people.'}
 				  />
 
-				  <MapViewDirections 
-				  	origin={{
-				  		latitude: this.state.latitude,
-							longitude: this.state.longitude
-				  	}}
-				  	destination={{
-				  		latitude: 36.117388,
-    					longitude: -115.169968
-				  	}}
-				  	apikey={GOOGLE_MAPS_APIKEY}
-				  	strokeWidth={3}
-				  	strokeColor='blue'
-				  	language='en'
-				  />
+				  
 		  	</MapView>
 		  </View>
 		)
@@ -113,7 +98,7 @@ export default Map
 
 const styles = StyleSheet.create({
 	container: {
-    // flex: 1,
+    flex: 1,
     position: 'absolute',
     top: 0,
     left: 0,

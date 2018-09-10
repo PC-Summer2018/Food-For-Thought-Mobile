@@ -12,8 +12,8 @@ import ProfileScreen from './components/ProfileScreen.js'
 export default class App extends React.Component {
   render() {
     return (
-      <RootStack />
-      // <MapScreen />
+      // <RootStack />
+      <MapScreen />
     )
   }
 }
