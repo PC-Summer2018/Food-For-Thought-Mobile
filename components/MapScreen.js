@@ -18,6 +18,10 @@ import Pickups from './PickupsScreen.js'
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U'
 
 class Map extends Component {
+	static navigationOptions = {
+		title:'Map',
+	}
+
 	state = {
 		region: {
 			latitude: 36.1699412,
