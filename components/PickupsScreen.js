@@ -17,7 +17,7 @@ export default class ManagePickups extends React.Component {
 						<Text style={styles.address}>640 Autumn Moon Drive</Text>
 						<Text style={styles.trays}>3 trays of Meatballs</Text>
 					</View>
-					<View style={styles.iconContainer}>
+					<View style={styles.iconContainer} elevation={5}>
 						<Entypo style={styles.icon} name='location-pin' color='white' />
 					</View>
 				</View>
@@ -47,7 +47,7 @@ export default class ManagePickups extends React.Component {
 						<Text style={styles.address}>1113 Casino Center Dr</Text>
 						<Text style={styles.trays}>5 trays of Tacos</Text>
 					</View>
-					<View style={styles.iconContainer}>
+					<View style={styles.iconContainer} elevation={5}>
 						<Entypo style={styles.icon} name='location-pin' color='white' />
 					</View>
 				</View>
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
 	address: {
 		fontSize: 20,
 		marginHorizontal: 10,
-		marginBottom: 5
+		marginBottom: 5,
+		color: '#888'
 	},
 	trays: {
 		fontSize: 22,
@@ -90,8 +91,11 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#1569C7',
+		backgroundColor: 'rgb(63,132,202)',
 		borderRadius: 20,
+		shadowOffset: {width:4, height:4},
+		shadowOpacity: 0.8,
+		shadowRadius: 4,
 		height: 55,
 		width: 55
 	},

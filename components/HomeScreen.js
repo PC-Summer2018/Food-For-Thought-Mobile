@@ -10,7 +10,7 @@ export default class HomeScreen extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.header}>Pickups available for today: #</Text>
+				<Text style={styles.header}>Pickups available for today: 4</Text>
 				<View style={[{margin: 5}]}><Button title='My Pickups Map' onPress={() => this.props.navigation.navigate('Map')} /></View>
 				<View style={[{margin: 5}]}><Button title='Manage Reports' onPress={() => this.props.navigation.navigate('Reports')} /></View>
 				<View style={[{margin: 5}]}><Button title='View All Available Pickups' onPress={() => this.props.navigation.navigate('Pickups')} /></View>
