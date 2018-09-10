@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, StyleSheet } from 'react-native'
+import { StyleSheet, Button } from 'react-native'
 import { createStackNavigator} from 'react-navigation'
 
 import LoginScreen from './components/LoginScreen.js'
@@ -9,11 +9,11 @@ import ReportsScreen from './components/ReportsScreen.js'
 import PickupsScreen from './components/PickupsScreen.js'
 import ProfileScreen from './components/ProfileScreen.js'
 
-
 export default class App extends React.Component {
   render() {
     return (
       <RootStack />
+      // <MapScreen />
     )
   }
 }
