@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import { createStackNavigator } from 'react-navigation'
 import MapView, { Marker } from 'react-native-maps'
-import MapViewDirections from 'react-native-maps-directions'
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U'
 
@@ -68,7 +67,9 @@ class Map extends Component {
 			    showsUserLocation
 				showsMyLocationButton
 				showsTraffic
+				zoomEnabled={true}
 				minZoomLevel={10}
+				initialRegion={this.state.region}
 			   >
 
 				{this.state.markers.map(marker => (
