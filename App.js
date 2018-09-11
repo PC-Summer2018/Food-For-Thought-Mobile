@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native'
-import { NativeRouter, Route } from 'react-router-native'
+import { StyleSheet, Button } from 'react-native'
+import { createStackNavigator } from 'react-navigation'
 
 import LoginScreen from './components/LoginScreen.js'
 import HomeScreen from './components/HomeScreen.js'
@@ -12,32 +12,43 @@ import ProfileScreen from './components/ProfileScreen.js'
 export default class App extends React.Component {
   render() {
     return (
-      <NativeRouter>
-        <View style={styles.container}>
-          <Route exact path='/' component={LoginScreen} />
-          <Route path='/home' component={HomeScreen} />
-          <Route path='/map' component={MapScreen} />
-          <Route path='/reports' component={ReportsScreen} />
-          <Route path='/pickups' component={PickupsScreen} />
-          <Route path='/profile' component={ProfileScreen} />
-        </View>
-      </NativeRouter>
+      <RootStack />
     )
   }
 }
+
+const RootStack = createStackNavigator(
+  {
+    Login:LoginScreen,
+    Home:HomeScreen,
+    Map:MapScreen,
+    Reports:ReportsScreen,
+    Pickups:PickupsScreen,
+    Profile:ProfileScreen,
+  },
+  {
+    initialRouteName:'Login',
+    navigationOptions: {
+      headerRight: (
+        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='white' />
+      ),
+      headerStyle: {
+        backgroundColor:'black',
+      },
+      headerTintColor:'white',
+      headerTitleStyle: {
+        fontWeight:'bold',
+      },
+    },
+  }
+)
 
 const styles = StyleSheet.create({
   container: {
     flex:1,
     paddingTop:10,
-    backgroundColor:'#fff',
+    backgroundColor:'#ebfbec',
     alignItems:'center',
     justifyContent:'center',
   },
 })
-
-/*
-<View style={styles.container}>
-  <Link to="/home"><Text>Home</Text></Link>
-</View>
-*/
