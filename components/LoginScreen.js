@@ -89,6 +89,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(63,132,202)',
     borderRadius: 20,
     fontSize: 20,
-    // fontFamily: 'sans-serif'
   }
 })
