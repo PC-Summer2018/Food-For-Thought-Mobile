@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text, TextInput, Button, StyleSheet } from 'react-native'
+import { ScrollView, View, Text, TextInput, Button, TouchableHighlight, StyleSheet } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 
 export default class ReportsScreen extends React.Component {
@@ -40,7 +40,11 @@ export default class ReportsScreen extends React.Component {
 					        <Text>Value: $24</Text>
 					    </View>
 					</View>
-					<Button style={styles.button} onPress={() => alert('Report Printed!')} title='Print Report' />
+					<TouchableHighlight onPress={() => alert('Report Printed!')}>
+						<View style={styles.button}>
+							<Text style={styles.button} title='Print Report'>Print Report</Text>
+						</View>
+					</TouchableHighlight>
 				</View>
 			</ScrollView>
 		)
@@ -51,7 +55,7 @@ const styles = StyleSheet.create({
 	container:{
 		flex:1,
 		paddingTop:10,
-		backgroundColor:'#fff',
+		backgroundColor:'#ebfbec',
 		alignItems:'center',
 	},
 	header:{
@@ -72,11 +76,18 @@ const styles = StyleSheet.create({
 		borderRadius:10,
 	},
 	button: {
-		backgroundColor:'blue',
-		color:'white',
-		borderWidth:1,
-		borderColor:'black',
-	},
+	    borderWidth: 0,
+	    shadowOffset: {width: 2, height: 2},
+	    shadowRadius: 4
+  	},
+  	buttontext: {
+	    color: 'white',
+	    padding: 15,
+	    backgroundColor: 'rgb(63,132,202)',
+	    borderRadius: 20,
+	    fontSize: 20,
+	    fontFamily: 'sans-serif'
+  	},
 	table: {
 		margin:10,
 	},
@@ -88,6 +99,7 @@ const styles = StyleSheet.create({
 		borderWidth:1,
 		borderColor:'grey',
 		borderRadius:10,
+		backgroundColor: '#fff'
 	},
 })
 

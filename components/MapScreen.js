@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { createStackNavigator } from 'react-navigation'
 import MapView, { Marker } from 'react-native-maps'
-import MapViewDirections from 'react-native-maps-directions'
+import { Entypo } from '@expo/vector-icons'
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDNIsEsuc8FsHQJsswUcDKUd9k3sZqzk3U'
 
@@ -34,7 +34,7 @@ class Map extends Component {
 	      longitude: 101.652778
 	    },
   	}]
-	}
+}
 
 	showCurrentLocation() {
 		this.watchId = navigator.geolocation.watchPosition(
@@ -66,8 +66,11 @@ class Map extends Component {
 			    region={this.state.region}
 			    provider='google'
 			    showsUserLocation
-					showsMyLocationButton
-					showsTraffic
+				showsMyLocationButton
+				showsTraffic
+				zoomEnabled={true}
+				minZoomLevel={10}
+				initialRegion={this.state.region}
 			   >
 
 				{this.state.markers.map(marker => (
@@ -75,22 +78,44 @@ class Map extends Component {
 						key={marker}
 						coordinate={marker.coordinates}
 						title={'Current location'}
-				  />
+					/>
 				))}
-
-				  
-				  <Marker
+				 	<Marker
 						coordinate={{
-							latitude: 36.117388,
+						latitude: 36.117388,
     					longitude: -115.169968
 						}}
 						title={'El Diner'}
 						description={'The food of the people.'}
-				  />
-
-				  
-		  	</MapView>
-		  </View>
+					/>
+			  	</MapView>
+				<View style={styles.individualPickupContainer}>
+					<View style={styles.textContainer}>
+						<Text style={styles.restaurant}>Mike's Kitchen</Text>
+						<Text style={styles.address}>640 Autumn Moon Drive</Text>
+						<Text style={styles.trays}>3 trays of Meatballs</Text>
+					</View>
+					<View style={styles.iconContainer1}>
+						<Entypo style={styles.icon1} name='check' color='white' />
+					</View>
+					<View style={styles.iconContainer2}>
+						<Entypo style={styles.icon2} name='trash' color='white' />
+					</View>
+				</View>
+				<View style={styles.individualPickupContainer}>
+					<View style={styles.textContainer}>
+						<Text style={styles.restaurant}>Testaurant</Text>
+						<Text style={styles.address}>2740 Fountain Vista Lane</Text>
+						<Text style={styles.trays}>4 trays of Pasta</Text>
+					</View>
+					<View style={styles.iconContainer1}>
+						<Entypo style={styles.icon1} name='check' color='white' />
+					</View>
+					<View style={styles.iconContainer2}>
+						<Entypo style={styles.icon2} name='trash' color='white' />
+					</View>
+				</View>
+			</View>
 		)
 	}
 }
@@ -99,20 +124,69 @@ export default Map
 
 const styles = StyleSheet.create({
 	container: {
-    flex: 1,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+	    flex: 1,
+	    position: 'absolute',
+	    top: 0,
+	    left: 0,
+	    bottom: 0,
+	    right: 0,
+	    justifyContent: 'flex-end',
+	    alignItems: 'center'
   },
-  map: {
-  	position: 'absolute',
-  	top: 0,
-  	left: 0,
-    bottom: 180,
-    right: 0
-  }
+	map: {
+	  	position: 'absolute',
+	  	top: 0,
+	  	left: 0,
+	    bottom: 180,
+	    right: 0
+  },
+	individualPickupContainer: {
+		borderBottomWidth: 1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		backgroundColor: '#fff'
+	},
+	restaurant: {
+		fontWeight: 'bold',
+		marginHorizontal: 10,
+		marginVertical: 5,
+		fontSize: 18,
+	},
+	address: {
+		fontSize: 14,
+		marginHorizontal: 10
+	},
+	trays: {
+		fontSize: 14,
+		margin: 10
+	},
+	textContainer: {
+		flexDirection: 'column',
+		width: 300
+	},
+	iconContainer1: {
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: 'rgb(89,182,85)',
+		borderRadius: 20,
+		height: 55,
+		width: 55
+	},
+	iconContainer2: {
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: 'rgb(202,59,51)',
+		borderRadius: 20,
+		height: 55,
+		margin: 5,
+		width: 55
+	},
+	icon1: {
+		fontSize: 20
+	},
+	icon2: {
+		fontSize: 20
+	}
 })

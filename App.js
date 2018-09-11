@@ -31,7 +31,7 @@ const RootStack = createStackNavigator(
     initialRouteName:'Login',
     navigationOptions: {
       headerRight: (
-        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='white' />
+        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='black' />
       ),
       headerStyle: {
         backgroundColor:'black',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flex:1,
     paddingTop:10,
-    backgroundColor:'#fff',
+    backgroundColor:'#ebfbec',
     alignItems:'center',
     justifyContent:'center',
   },
