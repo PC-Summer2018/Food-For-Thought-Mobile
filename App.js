@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Button } from 'react-native'
-import { createStackNavigator} from 'react-navigation'
+import { createStackNavigator } from 'react-navigation'
 
 import LoginScreen from './components/LoginScreen.js'
 import HomeScreen from './components/HomeScreen.js'
@@ -13,7 +13,6 @@ export default class App extends React.Component {
   render() {
     return (
       <RootStack />
-      // <MapScreen />
     )
   }
 }
@@ -31,7 +30,7 @@ const RootStack = createStackNavigator(
     initialRouteName:'Login',
     navigationOptions: {
       headerRight: (
-        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='black' />
+        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='white' />
       ),
       headerStyle: {
         backgroundColor:'black',
