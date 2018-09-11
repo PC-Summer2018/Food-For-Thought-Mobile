@@ -32,7 +32,7 @@ class Map extends Component {
 	    coordinates: {
 	      latitude: 3.148561,
 	      longitude: 101.652778
-	    },
+			}
   	}]
 	}
 
@@ -64,7 +64,6 @@ class Map extends Component {
 	}
 
 	render() {
-
 		return (
 			<View style={styles.container}>
 				<MapView style={styles.map}
@@ -81,11 +80,10 @@ class Map extends Component {
 							<MapView.Marker
 								coordinate={marker.coordinates}
 								title={'Current location'}
-						  />
-
-						  
+						  />	  
 						</View>
 					))}
+
 				  <Marker
 						coordinate={{
 							latitude: 36.117388,
@@ -94,6 +92,7 @@ class Map extends Component {
 						title={'El Diner'}
 						description={'The food of the people.'}
 				  />
+
 		  	</MapView>
 		  </View>
 		)
