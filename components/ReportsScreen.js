@@ -42,7 +42,7 @@ export default class ReportsScreen extends React.Component {
 					</View>
 					<TouchableHighlight onPress={() => alert('Report Printed!')}>
 						<View style={styles.button}>
-							<Text style={styles.button} title='Print Report'>Print Report</Text>
+							<Text style={styles.buttontext} title='Print Report'>Print Report</Text>
 						</View>
 					</TouchableHighlight>
 				</View>
@@ -78,15 +78,15 @@ const styles = StyleSheet.create({
 	button: {
 	    borderWidth: 0,
 	    shadowOffset: {width: 2, height: 2},
-	    shadowRadius: 4
-  	},
-  	buttontext: {
+	    margin: 10,
+	    backgroundColor: '#ebfbec'
+ 	},
+	buttontext: {
 	    color: 'white',
 	    padding: 15,
 	    backgroundColor: 'rgb(63,132,202)',
 	    borderRadius: 20,
 	    fontSize: 20,
-	    fontFamily: 'sans-serif'
   	},
 	table: {
 		margin:10,
