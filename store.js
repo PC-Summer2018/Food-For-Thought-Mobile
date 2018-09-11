@@ -1,9 +1,9 @@
 import { createStore, combineReducers } from 'redux'
 
-import donateReducer from './reducers/donateReducer.js'
+import mapReducer from './reducer/mapReducer'
 
 const rootReducer = combineReducers({
-	donateReducer: donateReducer,
+	mapReducer: mapReducer,
 })
 
 const store = createStore(rootReducer)

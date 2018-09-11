@@ -1,11 +1,16 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
+import { StyleSheet, View, Text, TextInput, TouchableHighlight, Button } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
-import { Link } from 'react-router-native'
-import {Redirect} from 'react-router-native'
-import { api, withAuth } from './Authentication'
 
-class LoginScreen extends React.Component {
+export default class LoginScreen extends React.Component {
+  static navigationOptions = ({navigation, navigationOptions}) => {
+    return {
+      headerStyle: {
+        backgroundColor: 'white'
+      },
+    }
+  }
+
   state = {
     email: '',
     password: '',
@@ -21,41 +26,32 @@ class LoginScreen extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.signin(this.state.email, this.state.password, () => {
-      this.setState({
-        redirect: true,
-        redirectTo: '/pickups'
-      })
-    })
+    this.props.navigation.navigate('Home')
   }
   
   render() {
-    let { redirect, redirectTo } = this.state
-
-    if(redirect) {
-      return <Redirect to={redirectTo} />
-    } else {
       return (
         <View style={styles.container}>
           <View style={styles.title}>
             <FontAwesome style={styles.titleTextIcon} name='cutlery' />
             <Text style={styles.titleText}>Login</Text>
           </View>
-          <TextInput style={styles.loginInputs} name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email'/>
-          <TextInput style={styles.loginInputs} name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password'/>
-          <Button style={styles.button} onPress={this.handleSubmit} title='Login' />
-        </View>
-      )
-    }
+        <TextInput style={styles.loginInputs} name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email'/>
+        <TextInput style={styles.loginInputs} name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password'/>
+        <TouchableHighlight onPress={this.handleSubmit}>
+          <View style={styles.button}>
+            <Text style={styles.buttontext}>Login</Text>
+          </View>
+        </TouchableHighlight>
+      </View>
+    )
   }
 }
-
-export default withAuth(LoginScreen)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ebfbec',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -79,12 +75,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     paddingHorizontal: 10,
-    fontSize: 20
+    fontSize: 20,
+    backgroundColor: '#fff'
   },
   button: {
-    borderWidth: 1,
-    borderColor: 'black',
-    backgroundColor: 'blue',
-    color: 'white'
+    borderWidth: 0,
+    shadowOffset: {width: 2, height: 2},
+    shadowRadius: 4
   },
+  buttontext: {
+    color: 'white',
+    padding: 15,
+    backgroundColor: 'rgb(63,132,202)',
+    borderRadius: 20,
+    fontSize: 20
+  }
 })
