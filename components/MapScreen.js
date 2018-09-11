@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
 	  	position: 'absolute',
 	  	top: 0,
 	  	left: 0,
-	    bottom: 180,
+	    bottom: 170,
 	    right: 0
   },
 	individualPickupContainer: {
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		flexDirection: 'column',
-		width: 300
+		width: 260
 	},
 	iconContainer1: {
 		flexDirection: 'row',
