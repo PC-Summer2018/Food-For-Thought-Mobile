@@ -42,7 +42,6 @@ const RootStack = createStackNavigator(
     }),
   }
 )
-
 const styles = StyleSheet.create({
   container: {
     flex:1,
