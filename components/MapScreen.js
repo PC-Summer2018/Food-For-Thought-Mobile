@@ -82,10 +82,10 @@ class Map extends Component {
 				))}
 				 	<Marker
 						coordinate={{
-						latitude: 36.117388,
-    					longitude: -115.169968
+						latitude: 36.0458189,
+    					longitude: -115.1508296
 						}}
-						title={'El Diner'}
+						title={"Mike's Kitchen"}
 						description={'The food of the people.'}
 					/>
 			  	</MapView>
@@ -94,19 +94,6 @@ class Map extends Component {
 						<Text style={styles.restaurant}>Mike's Kitchen</Text>
 						<Text style={styles.address}>640 Autumn Moon Drive</Text>
 						<Text style={styles.trays}>3 trays of Meatballs</Text>
-					</View>
-					<View style={styles.iconContainer1}>
-						<Entypo style={styles.icon1} name='check' color='white' />
-					</View>
-					<View style={styles.iconContainer2}>
-						<Entypo style={styles.icon2} name='trash' color='white' />
-					</View>
-				</View>
-				<View style={styles.individualPickupContainer}>
-					<View style={styles.textContainer}>
-						<Text style={styles.restaurant}>Testaurant</Text>
-						<Text style={styles.address}>2740 Fountain Vista Lane</Text>
-						<Text style={styles.trays}>4 trays of Pasta</Text>
 					</View>
 					<View style={styles.iconContainer1}>
 						<Entypo style={styles.icon1} name='check' color='white' />
@@ -137,7 +124,7 @@ const styles = StyleSheet.create({
 	  	position: 'absolute',
 	  	top: 0,
 	  	left: 0,
-	    bottom: 180,
+	    bottom: 0,
 	    right: 0
   },
 	individualPickupContainer: {
@@ -162,7 +149,7 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		flexDirection: 'column',
-		width: 300
+		width: 285
 	},
 	iconContainer1: {
 		flexDirection: 'row',

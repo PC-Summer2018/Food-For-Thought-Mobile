@@ -31,7 +31,7 @@ const RootStack = createStackNavigator(
     initialRouteName:'Login',
     navigationOptions: {
       headerRight: (
-        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='black' />
+        <Button onPress={() => alert('Confirm Logout?')} title='Logout' />
       ),
       headerStyle: {
         backgroundColor:'black',
