@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 	},
 	tableRow: {
 		width:280,
-		height:90,
+		height:114,
 		margin:5,
 		padding:10,
 		borderWidth:1,
@@ -101,12 +101,3 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff'
 	},
 })
-
-/*
-<Text style={styles.header}>Select Start & End Dates Below</Text>
-<TextInput style={styles.reportInputs} placeholder='Start Date' />
-<TextInput style={styles.reportInputs} placeholder='End Date' />
-<Button style={styles.button} onPress={() => alert('Report Generated!')} title='Generate Report' />
-<Button style={styles.button} onPress={() => alert('Report Printed!')} title='Print Report' />
-<Button style={styles.button} onPress={() => alert('Report Reset!')} title='Reset Report' />
-*/
