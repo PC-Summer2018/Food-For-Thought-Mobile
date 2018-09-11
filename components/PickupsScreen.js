@@ -17,7 +17,7 @@ export default class ManagePickups extends React.Component {
 						<Text style={styles.address}>640 Autumn Moon Drive</Text>
 						<Text style={styles.trays}>3 trays of Meatballs</Text>
 					</View>
-					<View style={styles.iconContainer} elevation={5}>
+					<View style={styles.iconContainer}>
 						<Entypo style={styles.icon} name='location-pin' color='white' />
 					</View>
 				</View>
@@ -47,7 +47,7 @@ export default class ManagePickups extends React.Component {
 						<Text style={styles.address}>1113 Casino Center Dr</Text>
 						<Text style={styles.trays}>5 trays of Tacos</Text>
 					</View>
-					<View style={styles.iconContainer} elevation={5}>
+					<View style={styles.iconContainer}>
 						<Entypo style={styles.icon} name='location-pin' color='white' />
 					</View>
 				</View>
