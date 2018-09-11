@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Text, TextInput, Button, StyleSheet } from 'react-native'
-import { createStackNavigator } from 'react-navigation'
 
 export default class ReportsScreen extends React.Component {
 	static navigationOptions = {

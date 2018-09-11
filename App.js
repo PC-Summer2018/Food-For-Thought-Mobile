@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Button, StyleSheet } from 'react-native'
-import { createStackNavigator} from 'react-navigation'
+import { View, StyleSheet } from 'react-native'
+import { NativeRouter, Route, Link } from 'react-router-native'
+import { Authentication } from './components/Authentication'
 
 import LoginScreen from './components/LoginScreen.js'
 import HomeScreen from './components/HomeScreen.js'
@@ -10,46 +11,22 @@ import PickupsScreen from './components/PickupsScreen.js'
 import ProfileScreen from './components/ProfileScreen.js'
 
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <RootStack />
-    )
-  }
-}
-
-const RootStack = createStackNavigator(
-  {
-    Login:LoginScreen,
-    Home:HomeScreen,
-    Map:MapScreen,
-    Reports:ReportsScreen,
-    Pickups:PickupsScreen,
-    Profile:ProfileScreen,
-  },
-  {
-    initialRouteName:'Login',
-    navigationOptions: {
-      headerRight: (
-        <Button onPress={() => alert('Confirm Logout?')} title='Logout' color='white' />
-      ),
-      headerStyle: {
-        backgroundColor:'black',
-      },
-      headerTintColor:'white',
-      headerTitleStyle: {
-        fontWeight:'bold',
-      },
-    },
-  }
+const App = props => (
+  <NativeRouter>
+  	<Authentication>
+	    <View style={styles.safeArea}>
+	      <Route exact path='/' component={LoginScreen} />
+	      <Route path='/pickups' component={PickupsScreen} />
+	      <Route path='/map' component={MapScreen} />
+	    </View>
+	  </Authentication>
+  </NativeRouter>
 )
 
 const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    paddingTop:10,
-    backgroundColor:'#fff',
-    alignItems:'center',
-    justifyContent:'center',
-  },
+	safeArea: {
+		flex: 1
+	}
 })
+
+export default App

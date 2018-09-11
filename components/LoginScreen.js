@@ -1,11 +1,16 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
+import { Link } from 'react-router-native'
+import {Redirect} from 'react-router-native'
+import { api, withAuth } from './Authentication'
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    redirect: false,
+    redirectTo: ''
   }
 
   handleChange = (e) => {
@@ -16,25 +21,36 @@ export default class LoginScreen extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if(this.state.email !== '' && this.state.password !== '') {
-    }
-    this.props.navigation.navigate('Home')
+    this.props.signin(this.state.email, this.state.password, () => {
+      this.setState({
+        redirect: true,
+        redirectTo: '/pickups'
+      })
+    })
   }
-
+  
   render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.title}>
-          <FontAwesome style={styles.titleTextIcon} name='cutlery' />
-          <Text style={styles.titleText}>Login</Text>
+    let { redirect, redirectTo } = this.state
+
+    if(redirect) {
+      return <Redirect to={redirectTo} />
+    } else {
+      return (
+        <View style={styles.container}>
+          <View style={styles.title}>
+            <FontAwesome style={styles.titleTextIcon} name='cutlery' />
+            <Text style={styles.titleText}>Login</Text>
+          </View>
+          <TextInput style={styles.loginInputs} name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email'/>
+          <TextInput style={styles.loginInputs} name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password'/>
+          <Button style={styles.button} onPress={this.handleSubmit} title='Login' />
         </View>
-        <TextInput style={styles.loginInputs} name='email' onChange={this.handleChange} value={this.state.email} placeholder='Email'/>
-        <TextInput style={styles.loginInputs} name='password' onChange={this.handleChange} value={this.state.password} placeholder='Password'/>
-        <Button style={styles.button} onPress={this.handleSubmit} title='Login' />
-      </View>
-    )
+      )
+    }
   }
 }
+
+export default withAuth(LoginScreen)
 
 const styles = StyleSheet.create({
   container: {
