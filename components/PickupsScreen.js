@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		flexDirection: 'column',
-		width: 300
+		width: 200
 	},
 	iconContainer: {
 		flexDirection: 'row',
