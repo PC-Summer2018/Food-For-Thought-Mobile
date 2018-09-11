@@ -82,18 +82,18 @@ class Map extends Component {
 				))}
 				 	<Marker
 						coordinate={{
-						latitude: 36.0458189,
-    					longitude: -115.1508296
+						latitude: 36.042454,
+    					longitude: -115.1550967
 						}}
-						title={"Mike's Kitchen"}
+						title={"Bachi Burger"}
 						description={'The food of the people.'}
 					/>
 			  	</MapView>
 				<View style={styles.individualPickupContainer}>
 					<View style={styles.textContainer}>
-						<Text style={styles.restaurant}>Mike's Kitchen</Text>
-						<Text style={styles.address}>640 Autumn Moon Drive</Text>
-						<Text style={styles.trays}>3 trays of Meatballs</Text>
+						<Text style={styles.restaurant}>Bachi Burger</Text>
+						<Text style={styles.address}>470 Windmill Lane</Text>
+						<Text style={styles.trays}>3 trays of Bahn-Mi Burger</Text>
 					</View>
 					<View style={styles.iconContainer1}>
 						<Entypo style={styles.icon1} name='check' color='white' />
