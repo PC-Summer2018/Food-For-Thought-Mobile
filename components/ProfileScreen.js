@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 	button: {
 	    borderWidth: 0,
 	    shadowOffset: {width: 2, height: 2},
-	    shadowRadius: 4
+	    backgroundColor: '#ebfbec'
  	},
 	buttontext: {
 	    color: 'white',
