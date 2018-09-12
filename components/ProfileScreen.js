@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text, TextInput, Button, StyleSheet } from 'react-native'
+import { ScrollView, View, Text, TextInput, TouchableHighlight, Button, StyleSheet } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 
 export default class ProfileScreen extends React.Component {
@@ -15,7 +15,11 @@ export default class ProfileScreen extends React.Component {
 				<TextInput style={styles.profileInputs} placeholder='Email' />
 				<TextInput style={styles.profileInputs} placeholder='Address' />
 				<TextInput style={styles.profileInputs} placeholder='Phone' />
-				<Button style={styles.button} onPress={() => alert('Info Changed!')} title='Change Info' />
+				<TouchableHighlight onPress={() => alert('Info Changed!')}>
+          			<View style={styles.button}>
+            			<Text style={styles.buttontext}>Save Changes</Text>
+          			</View>
+        		</TouchableHighlight>
 			</View>
 		)
 	}
@@ -44,9 +48,16 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff'
 	},
 	button: {
-		backgroundColor:'blue',
-		color:'white',
-		borderWidth:1,
-		borderColor:'black',
-	},
+	    borderWidth: 0,
+	    shadowOffset: {width: 2, height: 2},
+	    backgroundColor: '#ebfbec'
+ 	},
+	buttontext: {
+	    color: 'white',
+	    padding: 15,
+	    backgroundColor: 'rgb(63,132,202)',
+	    borderRadius: 20,
+	    fontSize: 20,
+	    fontFamily: 'sans-serif'
+  }
 })
